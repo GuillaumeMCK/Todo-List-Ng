@@ -16,3 +16,5 @@ You can test it [here](#).
 - [ ] add a color to a task
 - [ ] update a task
 - [ ] add a search bar to filter tasks
+- [ ] add persistence to the app (local storage)
+- [ ] dark & light mode

@@ -6,48 +6,55 @@ import Task from '../models/task';
 })
 export class TasksService {
 
-  private static tasks: Task[] = []
+  private static tasks: Task[] = TasksService.getTasks();
 
   private static generateId(): string {
     return Math.random().toString(36).substring(2);
   }
 
-  static createTask(content: string): Task {
+  public static createTask(content: string): Task {
     return {
       id: this.generateId(),
       content,
-      completed: false,
+      done: false,
       date: new Date()
     }
   }
 
-  static getTasks(): Task[] {
-    const tasks = localStorage.getItem('todo-app-tasks');
-    if (!tasks)
-      return this.tasks;
-    return JSON.parse(tasks) as Task[];
+  public static getTasks(): Task[] {
+    const localTasks = localStorage.getItem('todo-app-tasks') ?? '[]';
+    this.tasks = JSON.parse(localTasks);
+    return this.tasks;
   }
 
-  static addTask(task: Task): void {
+  public static addTask(task: Task): void {
     this.tasks.push(task);
     this.saveTasks();
   }
 
-  static deleteTask(id: string): void {
-    this.tasks = this.tasks.filter(task => task.id !== id);
+  public static getCount(): number {
+    return this.tasks.length;
+  }
+
+  public static getCountDone(): number {
+    return this.tasks.filter(t => t.done).length;
+  }
+
+  public static deleteTask(id: string): void {
+    this.tasks = this.tasks.filter(t => t.id !== id);
     this.saveTasks();
   }
 
-  static updateTask(task: Task): void {
+  public static updateTask(task: Task): void {
     this.tasks = this.tasks.map(t => t.id === task.id ? task : t);
     this.saveTasks();
   }
 
   private static saveTasks(): void {
-    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    localStorage.setItem('todo-app-tasks', JSON.stringify(this.tasks));
   }
 
-  static getTask(id: string): Task | undefined {
-    return this.tasks.find(task => task.id === id);
+  public static getTask(id: string): Task | undefined {
+    return this.tasks.find(t => t.id === id);
   }
 }

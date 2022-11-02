@@ -1,7 +1,7 @@
 interface Task {
   id: string;
   content: string;
-  completed: boolean;
+  done: boolean;
   date: Date;
 }
 

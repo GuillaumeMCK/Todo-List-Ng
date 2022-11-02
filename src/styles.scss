@@ -10,6 +10,7 @@ $bg-color-dark: #0f1723;
 
 $font-color-primary: #ffffff;
 $font-color-secondary: #a3b0cc;
+$font-color-gray: #6e7a8a;
 
 $font-size-xxs: 0.6rem;
 $font-size-xs: 0.8rem;
@@ -38,8 +39,11 @@ $font-family-primary: "FontAwesome", "Roboto", sans-serif;
   padding: 0;
   box-sizing: border-box;
   font-family: $font-family-primary;
-  background: $bg-color;
   color: $font-color-primary;
+}
+
+body {
+  background-color: $bg-color-dark;
 }
 
 h1 { font-size: $font-size-xxl; }
@@ -48,3 +52,38 @@ h3 { font-size: $font-size-lg; }
 h4 { font-size: $font-size-md; }
 h5 { font-size: $font-size-sm; }
 h6 { font-size: $font-size-xs; }
+
+.user-select-none {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.text-center {
+  text-align: center;
+}

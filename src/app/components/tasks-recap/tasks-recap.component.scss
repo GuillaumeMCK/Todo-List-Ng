@@ -1,0 +1,29 @@
+@import 'src/styles';
+
+.tasks-recap {
+  @extend .text-center;
+  @extend .user-select-none;
+  @extend .flex-row;
+  @extend .flex-center;
+
+  max-width: 24rem;
+  border-radius: 50px;
+  background-color: $bg-color-light;
+  margin: 1rem auto ;
+  justify-content: space-between;
+
+  p {
+  color: $font-color-gray;
+    font-size: $font-size-sm;
+    margin: 0.5rem 1rem;
+    font-weight: 500;
+    .tasks-left {
+      color: rgba($red, 0.6);
+      font-weight: 700;
+    }
+    .tasks-done {
+      color: rgba($primary, 0.6);
+      font-weight: 700;
+    }
+  }
+}

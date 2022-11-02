@@ -1,8 +1,8 @@
-type Task = {
-  id: number;
+interface Task {
+  id: string;
   content: string;
   completed: boolean;
-  date?: Date;
+  date: Date;
 }
 
 export default Task;

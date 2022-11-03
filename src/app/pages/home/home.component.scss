@@ -4,24 +4,22 @@
   @extend .text-center;
   @extend .user-select-none;
   @extend .flex-center;
-  color: $font-color-secondary;
+  color: $font-color-primary;
   margin: 1rem 0;
+}
+
+.todo-container {
+  margin: 0 auto;
+  max-width: 1024px;
 }
 
 header {
   position: sticky;
   top: 0;
-  padding: 0.3rem 0;
   background-color: rgba($bg-color, 0.8);
+  padding: 0 1rem;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
   box-shadow: $box-shadow;
-}
-
-@media (min-width: 576px) {
-  header {
-    padding: 0 1rem;
-    justify-content: space-between;
-    display: flex;
-    flex-direction: row;
-    box-shadow: $box-shadow;
-  }
 }

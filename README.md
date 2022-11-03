@@ -1,6 +1,7 @@
 # TodoListApp
 
 This is a simple to-do list app built with Angular 14.2.7 during my studies.
+You can test it [here](https://guillaumemck.github.io/Todo-List-Ng/).
 ![](https://raw.githubusercontent.com/GuillaumeMCK/Todo-List-Ng/main/gh-imgs/mv.png)
 ## MVP
 

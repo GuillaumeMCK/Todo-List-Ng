@@ -6,6 +6,18 @@ import Task from '../models/task';
 })
 export class TasksService {
 
+  private static readonly defaultTasks: Task[] = [
+    {
+      id: 'aakqcrd5v2p',
+      content: 'Sleep',
+      done: true,
+      date: "03/11/2022, 9:0:0 AM"
+    },
+    TasksService.createTask('Learn Angular'),
+    TasksService.createTask('Learn React'),
+    TasksService.createTask('Learn Vue'),
+    TasksService.createTask('Learn Svelte')
+  ];
   private static tasks: Task[] = TasksService.getTasks();
 
   private static generateId(): string {
@@ -17,13 +29,18 @@ export class TasksService {
       id: this.generateId(),
       content,
       done: false,
-      date: new Date()
+      date: new Date().toLocaleString()
     }
   }
 
   public static getTasks(): Task[] {
-    const localTasks = localStorage.getItem('todo-app-tasks') ?? '[]';
-    this.tasks = JSON.parse(localTasks);
+    const localTasks = localStorage.getItem('todo-app-tasks');
+    if (localTasks) {
+      this.tasks = JSON.parse(localTasks);
+    }
+    else {
+      this.writeDefaultTasks();
+    }
     return this.tasks;
   }
 
@@ -55,6 +72,11 @@ export class TasksService {
 
   private static saveTasks(): void {
     localStorage.setItem('todo-app-tasks', JSON.stringify(this.tasks));
+  }
+
+  private static writeDefaultTasks(): void {
+    this.tasks = this.defaultTasks;
+    localStorage.setItem('todo-app-tasks', JSON.stringify(this.defaultTasks));
   }
 
   public static getTask(id: string): Task | undefined {

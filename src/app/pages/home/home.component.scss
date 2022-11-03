@@ -9,7 +9,8 @@
 }
 
 header {
-  @extend .user-select-none;
+  position: sticky;
+  top: 0;
   padding: 0.3rem 0;
   background-color: rgba($bg-color, 0.8);
   box-shadow: $box-shadow;

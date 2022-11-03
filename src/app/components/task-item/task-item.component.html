@@ -1,1 +1,40 @@
-<p>task-item works!</p>
+<!-- create a task item pattern for the task list -->
+<div class="task-item">
+  <div class="task-item-checkbox">
+    <button (click)="onCheck()" class="task-item-checkbox-button">
+      <div [ngSwitch]="task.done">
+        <div *ngSwitchCase="true" class="task-item-checkbox-button-checked">
+          <!--          svg icon-->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="none" d="M0 0h24v24H0V0z"/>
+            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+          </svg>
+        </div>
+        <div *ngSwitchCase="false" class="task-item-checkbox-button-unchecked"></div>
+      </div>
+    </button>
+  </div>
+  <div class="task-item-content">
+    <div [ngSwitch]="task.done">
+      <div *ngSwitchCase="false">
+        <div class="text">{{task.content}}</div>
+      </div>
+      <div *ngSwitchCase="true">
+        <div class="text">
+          <del>{{task.content}}</del>
+        </div>
+      </div>
+      <div class="date-container"><p>{{task.date}}
+        <p></div>
+    </div>
+  </div>
+
+  <div class="delete-container">
+    <button (click)="onDelete()" class="delete-button">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="none" d="M0 0h24v24H0V0z"/>
+        <path d="M19 13H5v-2h14v2z"/>
+      </svg>
+    </button>
+  </div>
+</div>

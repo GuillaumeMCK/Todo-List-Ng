@@ -7,6 +7,6 @@ import {TasksService} from "../../services/tasks.service";
   styleUrls: ['./tasks-recap.component.scss']
 })
 export class TasksRecapComponent {
-  public tasks = () => TasksService.getCount();
   public tasksDone = () => TasksService.getCountDone();
+  public tasks = () => TasksService.getCount() - this.tasksDone();
 }

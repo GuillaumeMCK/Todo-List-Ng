@@ -1,0 +1,106 @@
+@import "src/styles";
+
+.task-item {
+  //max-width: calc(80% / 2);
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  background: $bg-color-light;
+  margin: 1rem 2rem;
+  border-radius: 5px;
+  min-height: 3rem;
+  transition: all 0.2s ease-in-out;
+
+  .task-item-checkbox {
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 0 0.5rem;
+    background: $bg-color;
+
+    .task-item-checkbox-button {
+      border-radius: inherit;
+      background: transparent;
+      transition: all 0.2s;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+
+      &:active {
+        background: rgba($primary, 0.2);
+      }
+
+      .task-item-checkbox-button-checked {
+        height: inherit;
+        width: inherit;
+        background: rgba($primary, 0.2);
+
+        svg {
+          display: block;
+          fill: $primary;
+        }
+      }
+    }
+  }
+
+  .task-item-content {
+    @extend .flex-wrap;
+    margin-left: 1rem;
+
+    .text {
+      font-size: $font-size-sm;
+      font-weight: 600;
+
+      del {
+        color: $font-color-gray;
+      }
+    }
+
+    .date-container {
+      p {
+        font-size: $font-size-xs;
+        color: $font-color-gray;
+      }
+    }
+  }
+
+  .delete-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    .delete-button {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      height: 30px;
+      width: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 0.5rem;
+      border-radius: 30px;
+      transition: all 0.2s ease-in-out;
+      background: rgba(red, 0.2);
+      transform: translateX(10px) translateY(-10px);
+
+      &:hover {
+        background: rgba(red, 0.1);
+      }
+
+      svg {
+        fill: red;
+      }
+    }
+  }
+}

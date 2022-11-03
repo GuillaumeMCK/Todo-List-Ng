@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {TasksService} from "../../services/tasks.service";
 
 @Component({
   selector: 'app-new-task-input',
   templateUrl: './new-task-input.component.html',
   styleUrls: ['./new-task-input.component.scss']
 })
-export class NewTaskInputComponent implements OnInit {
+export class NewTaskInputComponent {
 
-  constructor() { }
+  public taskContent: string = '';
 
-  ngOnInit(): void {
+  onSubmit() {
+    if (this.taskContent !== '') {
+      let newTask = TasksService.createTask(this.taskContent);
+      TasksService.addTask(newTask);
+      this.taskContent = '';
+    } else {
+      alert('Please enter a task');
+    }
   }
-
 }

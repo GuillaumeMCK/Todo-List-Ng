@@ -1,1 +1,7 @@
-<p>new-task-input works!</p>
+<div class="new-task-container">
+  <form class="new-task-form" (ngSubmit)="onSubmit()">
+    <input type="text" id="task-content" name="task-content" placeholder="What needs to be done?"
+           class="new-task-input" [(ngModel)]="taskContent" required>
+    <button type="submit" class="new-task-submit-button">+</button>
+  </form>
+</div>

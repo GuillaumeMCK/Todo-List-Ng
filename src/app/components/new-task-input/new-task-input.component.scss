@@ -1,0 +1,49 @@
+@import "src/styles";
+
+.new-task-container {
+  background: $bg-color;
+  overflow: hidden;
+  margin: 1rem 2rem;
+  border-radius: 5px;
+
+  .new-task-form {
+    @extend .flex-row;
+    align-items: center;
+
+    .new-task-input {
+      padding-left: 1rem;
+      border: none;
+      outline: none;
+      font-size: $font-size-sm;
+      transition: all 0.2s ease-in-out;
+      background: $bg-color;
+      color: $font-color-secondary;
+      height: 100%;
+      width: 100%;
+    }
+
+    .new-task-submit-button {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background: rgba($blue, 0.3);
+      transition: $transition;
+      color: $blue;
+      font-size: $font-size-md;
+
+      height: 38px;
+      width: 38px;
+
+      float: right;
+
+      &:hover {
+        background: rgba($blue, 0.3);
+        box-shadow: $box-shadow-hover;
+      }
+
+      &:active {
+        background: rgba($blue, 0.2);
+      }
+    }
+  }
+}

@@ -66,7 +66,10 @@ export class TasksService {
   }
 
   public static updateTask(task: Task): void {
-    this.tasks = this.tasks.map(t => t.id === task.id ? task : t);
+    let index = this.tasks.findIndex(t => t.id === task.id);
+    if (index !== -1) {
+      this.tasks[index] = task;
+    }
     this.saveTasks();
   }
 

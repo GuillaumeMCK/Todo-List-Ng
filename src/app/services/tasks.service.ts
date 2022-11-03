@@ -41,7 +41,10 @@ export class TasksService {
   }
 
   public static deleteTask(id: string): void {
-    this.tasks = this.tasks.filter(t => t.id !== id);
+    let index = this.tasks.findIndex(t => t.id === id);
+    if (index !== -1) {
+      this.tasks.splice(index, 1);
+    }
     this.saveTasks();
   }
 

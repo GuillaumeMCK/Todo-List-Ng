@@ -2,7 +2,7 @@ interface Task {
   id: string;
   content: string;
   done: boolean;
-  date: Date;
+  date: string;
 }
 
 export default Task;

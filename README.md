@@ -1,20 +1,19 @@
 # TodoListApp
 
 This is a simple to-do list app built with Angular 14.2.7 during my studies.
-You can test it [here](#).
-
+![](https://raw.githubusercontent.com/GuillaumeMCK/Todo-List-Ng/main/gh-imgs/mv.png)
 ## MVP
 
-- [ ] show all tasks
-- [ ] add new task
-- [ ] delete or complete a task
+- [x] show all tasks
+- [x] add new task
+- [x] delete or complete a task
 
 ## Bonus
 
-- [ ] add a due date to a task
+- [x] add a date to a task
 - [ ] add a priority to a task
 - [ ] add a color to a task
 - [ ] update a task
 - [ ] add a search bar to filter tasks
-- [ ] add persistence to the app (local storage)
+- [x] add persistence to the app (local storage)
 - [ ] dark & light mode
